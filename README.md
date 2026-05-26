@@ -144,6 +144,20 @@ npm install
 npm run dev
 ```
 
+## Screenshots
+
+Here are screenshots demonstrating the execution and output of the pass:
+
+![Screenshot 1](Screenshot%202026-05-26%20214211.png)
+![Screenshot 2](Screenshot%202026-05-26%20214230.png)
+![Screenshot 3](Screenshot%202026-05-26%20214245.png)
+![Screenshot 4](Screenshot%202026-05-26%20214257.png)
+![Screenshot 5](Screenshot%202026-05-26%20214310.png)
+![Screenshot 6](Screenshot%202026-05-26%20214321.png)
+![Screenshot 7](Screenshot%202026-05-26%20214359.png)
+![Screenshot 8](Screenshot%202026-05-26%20214417.png)
+![Screenshot 9](Screenshot%202026-05-26%20214445.png)
+
 ---
 
 ## Final Repository Verification Checklist
