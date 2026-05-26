@@ -160,6 +160,14 @@ Here are screenshots demonstrating the execution and output of the pass:
 
 ---
 
+## Invalid Test Case
+
+This demonstrates the handling of invalid C syntax code to verify proper error detection and logging:
+
+![Invalid Test Case](image.png)
+
+---
+
 ## Final Repository Verification Checklist
 
 Before pushing changes to GitHub, ensure that the repository contains the following files and directories:
