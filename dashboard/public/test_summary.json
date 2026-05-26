@@ -1,0 +1,85 @@
+{
+  "module_summary": {
+    "total_functions": 6,
+    "total_cost": 746.00,
+    "highest_cost_function": "main",
+    "highest_cost": 287.00,
+    "total_loops": 8,
+    "max_loop_depth": 2,
+    "loop_blocks": 30
+  },
+  "functions": [
+    {
+      "function": "sum_array",
+      "total_insts": 28,
+      "total_cost": 66.00,
+      "dominant_category": "Memory",
+      "loop_count": 1,
+      "max_loop_depth": 1,
+      "loop_blocks": 3,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Loops are present; consider loop-invariant motion and unrolling where safe."]
+    },
+    {
+      "function": "factorial",
+      "total_insts": 18,
+      "total_cost": 40.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns."]
+    },
+    {
+      "function": "compute",
+      "total_insts": 60,
+      "total_cost": 136.00,
+      "dominant_category": "Memory",
+      "loop_count": 2,
+      "max_loop_depth": 2,
+      "loop_blocks": 9,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "classify_value",
+      "total_insts": 29,
+      "total_cost": 57.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns."]
+    },
+    {
+      "function": "bubble_sort",
+      "total_insts": 72,
+      "total_cost": 160.00,
+      "dominant_category": "Memory",
+      "loop_count": 2,
+      "max_loop_depth": 2,
+      "loop_blocks": 9,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "main",
+      "total_insts": 103,
+      "total_cost": 287.00,
+      "dominant_category": "Memory",
+      "loop_count": 3,
+      "max_loop_depth": 1,
+      "loop_blocks": 9,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "High function call overhead; inline hot callees or reduce call frequency.", "Loops are present; consider loop-invariant motion and unrolling where safe."]
+    }
+  ]
+}

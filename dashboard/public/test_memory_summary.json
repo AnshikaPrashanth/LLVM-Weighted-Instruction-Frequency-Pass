@@ -1,0 +1,37 @@
+{
+  "module_summary": {
+    "total_functions": 2,
+    "total_cost": 246.00,
+    "highest_cost_function": "main",
+    "highest_cost": 155.00,
+    "total_loops": 2,
+    "max_loop_depth": 1,
+    "loop_blocks": 6
+  },
+  "functions": [
+    {
+      "function": "array_copy_ptr",
+      "total_insts": 35,
+      "total_cost": 91.00,
+      "dominant_category": "Memory",
+      "loop_count": 1,
+      "max_loop_depth": 1,
+      "loop_blocks": 3,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Loops are present; consider loop-invariant motion and unrolling where safe."]
+    },
+    {
+      "function": "main",
+      "total_insts": 63,
+      "total_cost": 155.00,
+      "dominant_category": "Memory",
+      "loop_count": 1,
+      "max_loop_depth": 1,
+      "loop_blocks": 3,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Loops are present; consider loop-invariant motion and unrolling where safe."]
+    }
+  ]
+}

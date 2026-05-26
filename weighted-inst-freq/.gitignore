@@ -1,0 +1,36 @@
+# Build artifacts
+build/
+
+# Object files and shared libraries
+*.o
+*.so
+*.a
+
+# LLVM IR output
+*.ll
+*.bc
+
+# Pass output
+results.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated images
+*.png
+*.jpg
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+
+# macOS
+.DS_Store

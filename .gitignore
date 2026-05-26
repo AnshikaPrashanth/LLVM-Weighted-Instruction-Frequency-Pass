@@ -1,0 +1,42 @@
+# Build artifacts
+build/
+
+# Object files and shared libraries
+*.o
+*.so
+*.a
+
+# LLVM IR output
+*.ll
+*.bc
+
+# Generated outputs and logs
+results/**/*.ll
+results/**/*.csv
+results/**/*.json
+results/**/*.txt
+
+# Frontend dependencies and builds
+dashboard/node_modules/
+dashboard/dist/
+
+# Python virtual environment and cache
+**/venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment and editor configurations
+.env
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Allow demo assets and screenshots
+!demo/
+!demo/screenshots/
+!demo/screenshots/*.png
+!demo/demo_video_link.txt

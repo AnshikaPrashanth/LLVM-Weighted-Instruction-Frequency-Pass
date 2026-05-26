@@ -1,0 +1,101 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O2/test_basic_results.csv
+  Compare mode : enabled
+  Compare CSV  : results/comparison/test_basic_optimization_comparison.csv
+  Summary file : results/O2/test_basic_summary.txt
+  JSON file    : results/O2/test_basic_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: add_simple                                      │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      3 │    1.0 │     3.00 │    75.00%  │
+│ Memory       │      0 │    3.0 │     0.00 │     0.00%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │    25.00%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │      4 │        │     4.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    4   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Arithmetic
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: check_sign                                      │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      0 │    3.0 │     0.00 │     0.00%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │    25.00%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      1 │    1.0 │     1.00 │    25.00%  │
+│ Other        │      2 │    1.0 │     2.00 │    50.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │      4 │        │     4.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    4   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Other
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      0 │    3.0 │     0.00 │     0.00%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │    16.67%  │
+│ Call         │      1 │    5.0 │     5.00 │    83.33%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │      2 │        │     6.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    2   cost:     6.00
+  -------------------------------------------------------
+  Dominant category: Call
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+
+[WeightedInstFreq] Done. Results written to: results/O2/test_basic_results.csv
+[WeightedInstFreq] Summary written to: results/O2/test_basic_summary.txt
+[WeightedInstFreq] JSON written to: results/O2/test_basic_summary.json
+[WeightedInstFreq] Comparison CSV written to: results/comparison/test_basic_optimization_comparison.csv
+[WeightedInstFreq] Delta CSV written to: results/comparison/test_basic_optimization_comparison.csv_delta

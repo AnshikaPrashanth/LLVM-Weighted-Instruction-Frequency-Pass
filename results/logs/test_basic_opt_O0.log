@@ -1,0 +1,114 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O0/test_basic_results.csv
+  Summary file : results/O0/test_basic_summary.txt
+  JSON file    : results/O0/test_basic_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: add_simple                                      │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      3 │    1.0 │     3.00 │     6.52%  │
+│ Memory       │     14 │    3.0 │    42.00 │    91.30%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     2.17%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     18 │        │    46.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   18   cost:    46.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+
+  *** HOTSPOT DETECTED *** Function 'add_simple' has weighted cost 4.600000e+01 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: check_sign                                      │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      9 │    3.0 │    27.00 │    75.00%  │
+│ ControlFlow  │      7 │    1.0 │     7.00 │    19.44%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      2 │    1.0 │     2.00 │     5.56%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     18 │        │    36.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    6   cost:    14.00
+  BB1                   insts:    2   cost:     4.00
+  BB2                   insts:    3   cost:     5.00
+  BB3                   insts:    2   cost:     4.00
+  BB4                   insts:    1   cost:     1.00
+  BB5                   insts:    2   cost:     4.00
+  BB6                   insts:    2   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+
+  *** HOTSPOT DETECTED *** Function 'check_sign' has weighted cost 3.600000e+01 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      9 │    3.0 │    27.00 │    62.79%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     2.33%  │
+│ Call         │      3 │    5.0 │    15.00 │    34.88%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     13 │        │    43.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   13   cost:    43.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 4.300000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O0/test_basic_results.csv
+[WeightedInstFreq] Summary written to: results/O0/test_basic_summary.txt
+[WeightedInstFreq] JSON written to: results/O0/test_basic_summary.json

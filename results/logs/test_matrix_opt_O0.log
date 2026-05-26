@@ -1,0 +1,93 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O0/test_matrix_results.csv
+  Summary file : results/O0/test_matrix_summary.txt
+  JSON file    : results/O0/test_matrix_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: matrix_multiply                                 │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      5 │    1.0 │     5.00 │     2.99%  │
+│ Memory       │     46 │    3.0 │   138.00 │    82.63%  │
+│ ControlFlow  │     13 │    1.0 │    13.00 │     7.78%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      8 │    1.0 │     8.00 │     4.79%  │
+│ Comparison   │      3 │    1.0 │     3.00 │     1.80%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     75 │        │   167.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   11   cost:    31.00
+  BB1                   insts:    3   cost:     5.00
+  BB2                   insts:    2   cost:     4.00
+  BB3                   insts:    3   cost:     5.00
+  BB4                   insts:   10   cost:    24.00
+  BB5                   insts:    3   cost:     5.00
+  BB6                   insts:   28   cost:    66.00
+  BB7                   insts:    4   cost:     8.00
+  BB8                   insts:    1   cost:     1.00
+  BB9                   insts:    4   cost:     8.00
+  BB10                  insts:    1   cost:     1.00
+  BB11                  insts:    4   cost:     8.00
+  BB12                  insts:    1   cost:     1.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=3, max nesting=3, loop blocks=11
+  Loop severity    : Heavy
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Nested loops detected; inner-loop optimization may improve performance.
+
+  *** HOTSPOT DETECTED *** Function 'matrix_multiply' has weighted cost 1.670000e+02 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │     11 │    3.0 │    33.00 │    58.93%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     1.79%  │
+│ Call         │      4 │    5.0 │    20.00 │    35.71%  │
+│ Cast         │      2 │    1.0 │     2.00 │     3.57%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     18 │        │    56.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   18   cost:    56.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 5.600000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O0/test_matrix_results.csv
+[WeightedInstFreq] Summary written to: results/O0/test_matrix_summary.txt
+[WeightedInstFreq] JSON written to: results/O0/test_matrix_summary.json

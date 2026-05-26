@@ -1,0 +1,49 @@
+{
+  "module_summary": {
+    "total_functions": 3,
+    "total_cost": 201.00,
+    "highest_cost_function": "process_3d_grid",
+    "highest_cost": 106.00,
+    "total_loops": 4,
+    "max_loop_depth": 3,
+    "loop_blocks": 14
+  },
+  "functions": [
+    {
+      "function": "sum_up_to",
+      "total_insts": 22,
+      "total_cost": 50.00,
+      "dominant_category": "Memory",
+      "loop_count": 1,
+      "max_loop_depth": 1,
+      "loop_blocks": 3,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Loops are present; consider loop-invariant motion and unrolling where safe."]
+    },
+    {
+      "function": "process_3d_grid",
+      "total_insts": 50,
+      "total_cost": 106.00,
+      "dominant_category": "Memory",
+      "loop_count": 3,
+      "max_loop_depth": 3,
+      "loop_blocks": 11,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "main",
+      "total_insts": 13,
+      "total_cost": 45.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "High function call overhead; inline hot callees or reduce call frequency."]
+    }
+  ]
+}

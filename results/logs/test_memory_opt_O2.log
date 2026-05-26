@@ -1,0 +1,102 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O2/test_memory_results.csv
+  Compare mode : enabled
+  Compare CSV  : results/comparison/test_memory_optimization_comparison.csv
+  Summary file : results/O2/test_memory_summary.txt
+  JSON file    : results/O2/test_memory_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: array_copy_ptr                                  │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │     15 │    1.0 │    15.00 │     4.50%  │
+│ Memory       │     80 │    3.0 │   240.00 │    72.07%  │
+│ ControlFlow  │     14 │    1.0 │    14.00 │     4.20%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │     23 │    1.0 │    23.00 │     6.91%  │
+│ Comparison   │     13 │    1.0 │    13.00 │     3.90%  │
+│ Other        │     28 │    1.0 │    28.00 │     8.41%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │    173 │        │   333.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    2   cost:     2.00
+  BB1                   insts:    5   cost:     5.00
+  BB2                   insts:    9   cost:    13.00
+  BB3                   insts:   10   cost:    14.00
+  BB4                   insts:    2   cost:     2.00
+  BB5                   insts:   57   cost:   121.00
+  BB6                   insts:    3   cost:     3.00
+  BB7                   insts:   18   cost:    34.00
+  BB8                   insts:    2   cost:     2.00
+  BB9                   insts:    9   cost:     9.00
+  BB10                  insts:   12   cost:    20.00
+  BB11                  insts:    5   cost:     5.00
+  BB12                  insts:    1   cost:     1.00
+  BB13                  insts:   38   cost:   102.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=4, max nesting=1, loop blocks=4
+  Loop severity    : Light
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+  *** HOTSPOT DETECTED *** Function 'array_copy_ptr' has weighted cost 3.330000e+02 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      5 │    1.0 │     5.00 │     5.68%  │
+│ Memory       │     10 │    3.0 │    30.00 │    34.09%  │
+│ ControlFlow  │      5 │    1.0 │     5.00 │     5.68%  │
+│ Call         │      6 │    5.0 │    30.00 │    34.09%  │
+│ Cast         │      6 │    1.0 │     6.00 │     6.82%  │
+│ Comparison   │      3 │    1.0 │     3.00 │     3.41%  │
+│ Other        │      9 │    1.0 │     9.00 │    10.23%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     44 │        │    88.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    8   cost:    16.00
+  BB1                   insts:   15   cost:    23.00
+  BB2                   insts:   12   cost:    20.00
+  BB3                   insts:    7   cost:    27.00
+  BB4                   insts:    2   cost:     2.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=1, max nesting=1, loop blocks=2
+  Loop severity    : Light
+  Suggestions:
+    - High function call overhead; inline hot callees or reduce call frequency.
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 8.800000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O2/test_memory_results.csv
+[WeightedInstFreq] Summary written to: results/O2/test_memory_summary.txt
+[WeightedInstFreq] JSON written to: results/O2/test_memory_summary.json
+[WeightedInstFreq] Comparison CSV written to: results/comparison/test_memory_optimization_comparison.csv
+[WeightedInstFreq] Delta CSV written to: results/comparison/test_memory_optimization_comparison.csv_delta

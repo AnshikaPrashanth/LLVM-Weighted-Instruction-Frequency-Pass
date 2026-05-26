@@ -1,0 +1,76 @@
+Weighted Instruction Frequency Summary
+========================================
+Functions analyzed: 6
+Total weighted cost: 454.00
+Highest cost function: sum_array (147.00)
+Total loops in module: 8
+Deepest loop nesting: 2
+Total loop blocks: 22
+
+Function: sum_array
+  Total instructions : 99
+  Weighted cost      : 147.00
+  Dominant category  : Memory
+  Total loops        : 3
+  Max loop nesting   : 1
+  Loop blocks        : 3
+  Loop severity      : Light
+  Suggestions:
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+Function: factorial
+  Total instructions : 12
+  Weighted cost      : 12.00
+  Dominant category  : ControlFlow
+  Total loops        : 1
+  Max loop nesting   : 1
+  Loop blocks        : 1
+  Loop severity      : Light
+  Suggestions:
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+Function: compute
+  Total instructions : 56
+  Weighted cost      : 68.00
+  Dominant category  : Memory
+  Total loops        : 2
+  Max loop nesting   : 2
+  Loop blocks        : 6
+  Loop severity      : Heavy
+  Suggestions:
+    - Nested loops detected; inner-loop optimization may improve performance.
+
+Function: classify_value
+  Total instructions : 9
+  Weighted cost      : 9.00
+  Dominant category  : ControlFlow
+  Total loops        : 0
+  Max loop nesting   : 0
+  Loop blocks        : 0
+  Loop severity      : None
+  Suggestions:
+    - Branch-heavy control flow; consider simplifying conditionals or loop exits.
+
+Function: bubble_sort
+  Total instructions : 60
+  Weighted cost      : 92.00
+  Dominant category  : Memory
+  Total loops        : 2
+  Max loop nesting   : 2
+  Loop blocks        : 12
+  Loop severity      : Heavy
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Nested loops detected; inner-loop optimization may improve performance.
+
+Function: main
+  Total instructions : 26
+  Weighted cost      : 126.00
+  Dominant category  : Call
+  Total loops        : 0
+  Max loop nesting   : 0
+  Loop blocks        : 0
+  Loop severity      : None
+  Suggestions:
+    - High function call overhead; inline hot callees or reduce call frequency.
+

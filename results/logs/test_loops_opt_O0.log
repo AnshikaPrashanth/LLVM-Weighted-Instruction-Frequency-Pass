@@ -1,0 +1,126 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O0/test_loops_results.csv
+  Summary file : results/O0/test_loops_summary.txt
+  JSON file    : results/O0/test_loops_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: sum_up_to                                       │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      2 │    1.0 │     2.00 │     4.00%  │
+│ Memory       │     14 │    3.0 │    42.00 │    84.00%  │
+│ ControlFlow  │      5 │    1.0 │     5.00 │    10.00%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      1 │    1.0 │     1.00 │     2.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     22 │        │    50.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    7   cost:    19.00
+  BB1                   insts:    4   cost:     8.00
+  BB2                   insts:    5   cost:    11.00
+  BB3                   insts:    4   cost:     8.00
+  BB4                   insts:    2   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=1, max nesting=1, loop blocks=3
+  Loop severity    : Light
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+  *** HOTSPOT DETECTED *** Function 'sum_up_to' has weighted cost 5.000000e+01 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: process_3d_grid                                 │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      6 │    1.0 │     6.00 │     5.66%  │
+│ Memory       │     28 │    3.0 │    84.00 │    79.25%  │
+│ ControlFlow  │     13 │    1.0 │    13.00 │    12.26%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      3 │    1.0 │     3.00 │     2.83%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     50 │        │   106.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    9   cost:    25.00
+  BB1                   insts:    4   cost:     8.00
+  BB2                   insts:    2   cost:     4.00
+  BB3                   insts:    4   cost:     8.00
+  BB4                   insts:    2   cost:     4.00
+  BB5                   insts:    4   cost:     8.00
+  BB6                   insts:    9   cost:    19.00
+  BB7                   insts:    4   cost:     8.00
+  BB8                   insts:    1   cost:     1.00
+  BB9                   insts:    4   cost:     8.00
+  BB10                  insts:    1   cost:     1.00
+  BB11                  insts:    4   cost:     8.00
+  BB12                  insts:    2   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=3, max nesting=3, loop blocks=11
+  Loop severity    : Heavy
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Nested loops detected; inner-loop optimization may improve performance.
+
+  *** HOTSPOT DETECTED *** Function 'process_3d_grid' has weighted cost 1.060000e+02 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      8 │    3.0 │    24.00 │    53.33%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     2.22%  │
+│ Call         │      4 │    5.0 │    20.00 │    44.44%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     13 │        │    45.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   13   cost:    45.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 4.500000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O0/test_loops_results.csv
+[WeightedInstFreq] Summary written to: results/O0/test_loops_summary.txt
+[WeightedInstFreq] JSON written to: results/O0/test_loops_summary.json

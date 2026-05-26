@@ -1,0 +1,4 @@
+function,O0_cost,O2_cost,cost_delta,reduction_pct,O0_insts,O2_insts,inst_delta,loop_severity
+add_simple,46.00,4.00,42.00,91.30,18,4,14,None
+check_sign,36.00,4.00,32.00,88.89,18,4,14,None
+main,43.00,6.00,37.00,86.05,13,2,11,None

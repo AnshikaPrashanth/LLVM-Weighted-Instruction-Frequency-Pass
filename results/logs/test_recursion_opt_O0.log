@@ -1,0 +1,118 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O0/test_recursion_results.csv
+  Summary file : results/O0/test_recursion_summary.txt
+  JSON file    : results/O0/test_recursion_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: fibonacci                                       │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      3 │    1.0 │     3.00 │     5.56%  │
+│ Memory       │     11 │    3.0 │    33.00 │    61.11%  │
+│ ControlFlow  │      6 │    1.0 │     6.00 │    11.11%  │
+│ Call         │      2 │    5.0 │    10.00 │    18.52%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      2 │    1.0 │     2.00 │     3.70%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     24 │        │    54.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    6   cost:    14.00
+  BB1                   insts:    2   cost:     4.00
+  BB2                   insts:    3   cost:     5.00
+  BB3                   insts:    2   cost:     4.00
+  BB4                   insts:    9   cost:    23.00
+  BB5                   insts:    2   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+
+  *** HOTSPOT DETECTED *** Function 'fibonacci' has weighted cost 5.400000e+01 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: collatz_steps                                   │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      6 │    1.0 │     6.00 │     8.33%  │
+│ Memory       │     16 │    3.0 │    48.00 │    66.67%  │
+│ ControlFlow  │      6 │    1.0 │     6.00 │     8.33%  │
+│ Call         │      2 │    5.0 │    10.00 │    13.89%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      2 │    1.0 │     2.00 │     2.78%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     32 │        │    72.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:    8   cost:    20.00
+  BB1                   insts:    3   cost:     7.00
+  BB2                   insts:    4   cost:     6.00
+  BB3                   insts:    7   cost:    17.00
+  BB4                   insts:    8   cost:    18.00
+  BB5                   insts:    2   cost:     4.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+
+  *** HOTSPOT DETECTED *** Function 'collatz_steps' has weighted cost 7.200000e+01 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      8 │    3.0 │    24.00 │    53.33%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     2.22%  │
+│ Call         │      4 │    5.0 │    20.00 │    44.44%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     13 │        │    45.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   13   cost:    45.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 4.500000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O0/test_recursion_results.csv
+[WeightedInstFreq] Summary written to: results/O0/test_recursion_summary.txt
+[WeightedInstFreq] JSON written to: results/O0/test_recursion_summary.json

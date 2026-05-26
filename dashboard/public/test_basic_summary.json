@@ -1,0 +1,49 @@
+{
+  "module_summary": {
+    "total_functions": 3,
+    "total_cost": 125.00,
+    "highest_cost_function": "add_simple",
+    "highest_cost": 46.00,
+    "total_loops": 0,
+    "max_loop_depth": 0,
+    "loop_blocks": 0
+  },
+  "functions": [
+    {
+      "function": "add_simple",
+      "total_insts": 18,
+      "total_cost": 46.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns."]
+    },
+    {
+      "function": "check_sign",
+      "total_insts": 18,
+      "total_cost": 36.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns."]
+    },
+    {
+      "function": "main",
+      "total_insts": 13,
+      "total_cost": 43.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "High function call overhead; inline hot callees or reduce call frequency."]
+    }
+  ]
+}

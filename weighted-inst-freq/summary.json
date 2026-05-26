@@ -1,0 +1,85 @@
+{
+  "module_summary": {
+    "total_functions": 6,
+    "total_cost": 454.00,
+    "highest_cost_function": "sum_array",
+    "highest_cost": 147.00,
+    "total_loops": 8,
+    "max_loop_depth": 2,
+    "loop_blocks": 22
+  },
+  "functions": [
+    {
+      "function": "sum_array",
+      "total_insts": 99,
+      "total_cost": 147.00,
+      "dominant_category": "Memory",
+      "loop_count": 3,
+      "max_loop_depth": 1,
+      "loop_blocks": 3,
+      "loop_severity": "Light",
+      "is_hotspot": true,
+      "suggestions": ["Loops are present; consider loop-invariant motion and unrolling where safe."]
+    },
+    {
+      "function": "factorial",
+      "total_insts": 12,
+      "total_cost": 12.00,
+      "dominant_category": "ControlFlow",
+      "loop_count": 1,
+      "max_loop_depth": 1,
+      "loop_blocks": 1,
+      "loop_severity": "Light",
+      "is_hotspot": false,
+      "suggestions": ["Loops are present; consider loop-invariant motion and unrolling where safe."]
+    },
+    {
+      "function": "compute",
+      "total_insts": 56,
+      "total_cost": 68.00,
+      "dominant_category": "Memory",
+      "loop_count": 2,
+      "max_loop_depth": 2,
+      "loop_blocks": 6,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "classify_value",
+      "total_insts": 9,
+      "total_cost": 9.00,
+      "dominant_category": "ControlFlow",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": false,
+      "suggestions": ["Branch-heavy control flow; consider simplifying conditionals or loop exits."]
+    },
+    {
+      "function": "bubble_sort",
+      "total_insts": 60,
+      "total_cost": 92.00,
+      "dominant_category": "Memory",
+      "loop_count": 2,
+      "max_loop_depth": 2,
+      "loop_blocks": 12,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "main",
+      "total_insts": 26,
+      "total_cost": 126.00,
+      "dominant_category": "Call",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High function call overhead; inline hot callees or reduce call frequency."]
+    }
+  ]
+}

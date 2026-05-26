@@ -1,0 +1,37 @@
+{
+  "module_summary": {
+    "total_functions": 2,
+    "total_cost": 223.00,
+    "highest_cost_function": "matrix_multiply",
+    "highest_cost": 167.00,
+    "total_loops": 3,
+    "max_loop_depth": 3,
+    "loop_blocks": 11
+  },
+  "functions": [
+    {
+      "function": "matrix_multiply",
+      "total_insts": 75,
+      "total_cost": 167.00,
+      "dominant_category": "Memory",
+      "loop_count": 3,
+      "max_loop_depth": 3,
+      "loop_blocks": 11,
+      "loop_severity": "Heavy",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "Nested loops detected; inner-loop optimization may improve performance."]
+    },
+    {
+      "function": "main",
+      "total_insts": 18,
+      "total_cost": 56.00,
+      "dominant_category": "Memory",
+      "loop_count": 0,
+      "max_loop_depth": 0,
+      "loop_blocks": 0,
+      "loop_severity": "None",
+      "is_hotspot": true,
+      "suggestions": ["High memory dominance; review data locality and memory access patterns.", "High function call overhead; inline hot callees or reduce call frequency."]
+    }
+  ]
+}

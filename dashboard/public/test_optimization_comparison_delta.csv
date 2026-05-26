@@ -1,0 +1,7 @@
+function,O0_cost,O2_cost,cost_delta,reduction_pct,O0_insts,O2_insts,inst_delta,loop_severity
+sum_array,66.00,147.00,-81.00,-122.73,28,99,-71,Light
+factorial,40.00,12.00,28.00,70.00,18,12,6,Light
+compute,136.00,68.00,68.00,50.00,60,56,4,Heavy
+classify_value,57.00,9.00,48.00,84.21,29,9,20,None
+bubble_sort,160.00,92.00,68.00,42.50,72,60,12,Heavy
+main,287.00,126.00,161.00,56.10,103,26,77,None

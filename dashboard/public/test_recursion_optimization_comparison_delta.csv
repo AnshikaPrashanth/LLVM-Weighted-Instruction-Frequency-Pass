@@ -1,0 +1,4 @@
+function,O0_cost,O2_cost,cost_delta,reduction_pct,O0_insts,O2_insts,inst_delta,loop_severity
+fibonacci,54.00,22.00,32.00,59.26,24,18,6,Light
+collatz_steps,72.00,18.00,54.00,75.00,32,18,14,Light
+main,45.00,31.00,14.00,31.11,13,19,-6,Light

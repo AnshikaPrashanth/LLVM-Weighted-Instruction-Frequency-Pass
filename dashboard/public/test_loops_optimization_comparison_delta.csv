@@ -1,0 +1,4 @@
+function,O0_cost,O2_cost,cost_delta,reduction_pct,O0_insts,O2_insts,inst_delta,loop_severity
+sum_up_to,50.00,14.00,36.00,72.00,22,14,8,None
+process_3d_grid,106.00,103.00,3.00,2.83,50,99,-49,Heavy
+main,45.00,11.00,34.00,75.56,13,3,10,None

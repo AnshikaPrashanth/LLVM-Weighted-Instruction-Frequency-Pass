@@ -1,0 +1,3 @@
+function,O0_cost,O2_cost,cost_delta,reduction_pct,O0_insts,O2_insts,inst_delta,loop_severity
+matrix_multiply,167.00,262.00,-95.00,-56.89,75,110,-35,Light
+main,56.00,78.00,-22.00,-39.29,18,22,-4,None

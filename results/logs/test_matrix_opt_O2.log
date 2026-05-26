@@ -1,0 +1,86 @@
+[WeightedInstFreq] Loading weights from: ./weights.cfg
+[WeightedInstFreq]   Arithmetic = 1.000000e+00
+[WeightedInstFreq]   Memory = 3.000000e+00
+[WeightedInstFreq]   ControlFlow = 1.000000e+00
+[WeightedInstFreq]   Call = 5.000000e+00
+[WeightedInstFreq]   Cast = 1.000000e+00
+[WeightedInstFreq]   Comparison = 1.000000e+00
+[WeightedInstFreq]   Other = 1.000000e+00
+
+========================================
+  Weighted Instruction Frequency Pass  
+========================================
+  Weight file  : ./weights.cfg
+  Hot threshold: 3.000000e+01
+  Output CSV   : results/O2/test_matrix_results.csv
+  Compare mode : enabled
+  Compare CSV  : results/comparison/test_matrix_optimization_comparison.csv
+  Summary file : results/O2/test_matrix_summary.txt
+  JSON file    : results/O2/test_matrix_summary.json
+========================================
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: matrix_multiply                                 │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │     29 │    1.0 │    29.00 │    11.07%  │
+│ Memory       │     76 │    3.0 │   228.00 │    87.02%  │
+│ ControlFlow  │      3 │    1.0 │     3.00 │     1.15%  │
+│ Call         │      0 │    5.0 │     0.00 │     0.00%  │
+│ Cast         │      0 │    1.0 │     0.00 │     0.00%  │
+│ Comparison   │      1 │    1.0 │     1.00 │     0.38%  │
+│ Other        │      1 │    1.0 │     1.00 │     0.38%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │    110 │        │   262.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   17   cost:    49.00
+  BB1                   insts:   92   cost:   212.00
+  BB2                   insts:    1   cost:     1.00
+  -------------------------------------------------------
+  Dominant category: Memory
+  Loop metrics     : total loops=1, max nesting=1, loop blocks=1
+  Loop severity    : Light
+  Suggestions:
+    - High memory dominance; review data locality and memory access patterns.
+    - Loops are present; consider loop-invariant motion and unrolling where safe.
+
+  *** HOTSPOT DETECTED *** Function 'matrix_multiply' has weighted cost 2.620000e+02 >= threshold 3.000000e+01
+
+┌─────────────────────────────────────────────────────────┐
+│ Function: main                                            │
+├──────────────┬────────┬────────┬──────────┬────────────┤
+│ Category     │ Count  │ Weight │   Cost   │    Pct     │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ Arithmetic   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Memory       │      8 │    3.0 │    24.00 │    30.77%  │
+│ ControlFlow  │      1 │    1.0 │     1.00 │     1.28%  │
+│ Call         │     10 │    5.0 │    50.00 │    64.10%  │
+│ Cast         │      3 │    1.0 │     3.00 │     3.85%  │
+│ Comparison   │      0 │    1.0 │     0.00 │     0.00%  │
+│ Other        │      0 │    1.0 │     0.00 │     0.00%  │
+├──────────────┼────────┼────────┼──────────┼────────────┤
+│ TOTAL        │     22 │        │    78.00 │ 100.00%  │
+└──────────────┴────────┴────────┴──────────┴────────────┘
+
+  Basic Block Cost Breakdown:
+  -------------------------------------------------------
+  BB0                   insts:   22   cost:    78.00
+  -------------------------------------------------------
+  Dominant category: Call
+  Loop metrics     : total loops=0, max nesting=0, loop blocks=0
+  Loop severity    : None
+  Suggestions:
+    - High function call overhead; inline hot callees or reduce call frequency.
+
+  *** HOTSPOT DETECTED *** Function 'main' has weighted cost 7.800000e+01 >= threshold 3.000000e+01
+
+
+[WeightedInstFreq] Done. Results written to: results/O2/test_matrix_results.csv
+[WeightedInstFreq] Summary written to: results/O2/test_matrix_summary.txt
+[WeightedInstFreq] JSON written to: results/O2/test_matrix_summary.json
+[WeightedInstFreq] Comparison CSV written to: results/comparison/test_matrix_optimization_comparison.csv
+[WeightedInstFreq] Delta CSV written to: results/comparison/test_matrix_optimization_comparison.csv_delta
